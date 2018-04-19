@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <div class="mh-100" id="root">
+      <div class="row p-2">
+        <ul class="l-0 p-3 list-unstyled position-fixed bg-primary text-light" v-bind:class="[isSeen ? col-2 : col-1]">
+          <button class="btn-primary" @click="isSeen = !isSeen"><i class="fas fa-bars"></i></button>
+          <img src="[isSeen ? Logo1.png : icon.png]" >
+          <div v-show="isSeen" class="text-light">Organization</div>
+          <li><i class="fas fa-user "></i></li><li v-show="isSeen">Users</li>
+          <li><i class="fas fa-users"></i></li><li v-show="isSeen" >Groups</li>
+          <li><i class="fas fa-user-plus"></i></li><li v-show="isSeen" >Roles</li>
+          <div  v-show="isSeen" class="text-light">Security</div>
+          <li><i class="fas fa-key"></i></li>  <li v-show="isSeen" >Login</li>
+          <li><i class="fas fa-user-secret"></i></li><li v-show="isSeen" >Authetication</li>
+          <div  v-show="isSeen" class="text-light">System Prefrences</div>
+          <li><i class="fas fa-globe"></i></li><li v-show="isSeen" >Locoalization</li>
+          <li><i class="fas fa-envelope"></i></li><li v-show="isSeen" >Email configuration</li>
+          <li><i class="fas fa-bell"></i></li><li v-show="isSeen" >Notifications</li>
+          <div  v-show="isSeen" class="text-light">Apperence</div>
+          <li><i class="fas fa-cogs"></i></li><li v-show="isSeen" >Custome</li>
+          <li><i class="fas fa-file-alt"></i></li><li v-show="isSeen" >Themes</li>
+          <div  v-show="isSeen" class="text-light">System Information</div>
+          <li><i class="fas fa-laptop"></i></li><li v-show="isSeen" >Software requirements</li>
+          <li><i class="fas fa-puzzle-piece"></i></li><li v-show="isSeen" >Plugins</li>
+          <div  v-show="isSeen" class="text-light">Tools</div>
+          <li><i class="fas fa-bolt"></i></li><li v-show="isSeen" >Manage Cache</li>
+          <li><i class="fas fa-list-ul"></i></li><li v-show="isSeen">Audit Log</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: '#root',
+        data:{
+          isSeen:true
+        }
+      })
+    </script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  </body>
+</html>
