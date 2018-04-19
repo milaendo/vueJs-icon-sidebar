@@ -8,33 +8,43 @@
   </head>
   <body>
     <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
-    <div class="mh-100" id="root">
+    <div id="root">
+      <img src="img/Logo1.png">
+      <button class="btn-primary" @click="isSeen = !isSeen"><i class="fas icon fa-bars"></i></button>
       <div class="row p-2">
-        <ul class="l-0 p-3 list-unstyled position-fixed bg-primary text-light" v-bind:class="[isSeen ? col-2 : col-1]">
-          <img  class="@click=isSeen = !isSeen btn" src="img/Logo1.png" >
-          <div v-show="isSeen" class="text-light">Organization</div>
-          <li><i class="fas fa-user "></i></li><li v-show="isSeen">Users</li>
-          <li><i class="fas fa-users"></i></li><li v-show="isSeen" >Groups</li>
-          <li><i class="fas fa-user-plus"></i></li><li v-show="isSeen" >Roles</li>
-          <div  v-show="isSeen" class="text-light">Security</div>
-          <li><i class="fas fa-key"></i></li>  <li v-show="isSeen" >Login</li>
-          <li><i class="fas fa-user-secret"></i></li><li v-show="isSeen" >Authetication</li>
-          <div  v-show="isSeen" class="text-light">System Prefrences</div>
-          <li><i class="fas fa-globe"></i></li><li v-show="isSeen" >Locoalization</li>
-          <li><i class="fas fa-envelope"></i></li><li v-show="isSeen" >Email configuration</li>
-          <li><i class="fas fa-bell"></i></li><li v-show="isSeen" >Notifications</li>
-          <div  v-show="isSeen" class="text-light">Apperence</div>
-          <li><i class="fas fa-cogs"></i></li><li v-show="isSeen" >Custome</li>
-          <li><i class="fas fa-file-alt"></i></li><li v-show="isSeen" >Themes</li>
-          <div  v-show="isSeen" class="text-light">System Information</div>
-          <li><i class="fas fa-laptop"></i></li><li v-show="isSeen" >Software requirements</li>
-          <li><i class="fas fa-puzzle-piece"></i></li><li v-show="isSeen" >Plugins</li>
-          <div  v-show="isSeen" class="text-light">Tools</div>
-          <li><i class="fas fa-bolt"></i></li><li v-show="isSeen" >Manage Cache</li>
-          <li><i class="fas fa-list-ul"></i></li><li v-show="isSeen">Audit Log</li>
+        <ul style="height:100%;" class="l-0 p-3 list-unstyled position-fixed bg-primary text-light sidebarmenu" v-bind:class="[isSeen ? col-2 : col-1]">
+          <li class="h5 text-muted font-weight-light" v-show="isSeen">Organization</li>
+          <li><i class="fas icon fa-user "></i> <span v-show="isSeen">Users</span></li>
+          <li><i class="fas icon fa-users"></i> <span v-show="isSeen" >Groups</span></li>
+          <li><i class="fas icon fa-user-plus"></i> <span v-show="isSeen" >Roles</span></li>
+          <li class="h5 text-muted font-weight-light" v-show="isSeen">Security</li>
+          <li><i class="fas fa-key"></i>  <span v-show="isSeen" >Login</span></li>
+          <li><i class="fas icon fa-user-secret"></i> <span v-show="isSeen">Authetication</span></li>
+          <li class="h5 text-muted font-weight-light" v-show="isSeen">System Prefrences</li>
+          <li><i class="fas icon fa-globe"></i> <span v-show="isSeen" >Localization</span></li>
+          <li><i class="fas icon fa-envelope"></i> <span v-show="isSeen" >Email configuration</span></li>
+          <li><i class="fas icon fa-bell"></i> <span v-show="isSeen" >Notifications</span></li>
+          <li class="h5 text-muted font-weight-light" v-show="isSeen">Apperence</li>
+          <li><i class="fas icon fa-cogs"></i> <span v-show="isSeen" >Custome</span></li>
+          <li><i class="fas icon fa-file-alt"></i> <span v-show="isSeen" >Themes</span></li>
+          <li class="h5 text-muted font-weight-light" v-show="isSeen">System Information</li>
+          <li><i class="fas icon fa-laptop"></i> <span v-show="isSeen" >Software requirements</span></li>
+          <li><i class="fas icon fa-puzzle-piece"></i> <span v-show="isSeen" >Plugins</span></li>
+          <li class="h5 text-muted font-weight-light" v-show="isSeen">Tools</li>
+          <li><i class="fas icon fa-bolt"></i> <span v-show="isSeen" >Manage Cache</span></li>
+          <li><i class="fas icon fa-list-ul"></i> <span v-show="isSeen">Audit Log</span></li>
         </ul>
       </div>
     </div>
+    <style>
+     .sidebarmenu li{
+       height: 36px;
+       margin:10px 0;
+     }
+     .sidebarmenu .icon{
+       margin-top: 10px;
+     }
+    </style>
     <script>
       new Vue({
         el: '#root',
