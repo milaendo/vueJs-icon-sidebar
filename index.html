@@ -12,7 +12,7 @@
       <img src="img/Logo1.png">
       <button class="btn-primary" @click="isSeen = !isSeen"><i class="fas icon fa-bars"></i></button>
       <div class="row p-2">
-        <ul style="height:100%;" class="l-0 p-3 list-unstyled position-fixed bg-primary text-light sidebarmenu" v-bind:class="[isSeen ? col-2 : col-1]">
+        <ul style="height:100%;" class="l-0 p-3 list-unstyled position-fixed bg-primary text-light sidebarmenuicons" v-bind:class="[isSeen ? col-2 : col-1]">
           <li class="h5 text-muted font-weight-light" v-show="isSeen">Organization</li>
           <li><i class="fas icon fa-user "></i> <span v-show="isSeen">Users</span></li>
           <li><i class="fas icon fa-users"></i> <span v-show="isSeen" >Groups</span></li>
@@ -41,8 +41,9 @@
        height: 36px;
        margin:10px 0;
      }
-     .sidebarmenu .icon{
-       margin-top: 10px;
+     .sidebarmenuicons li{
+       height: 36px;
+       margin:25px 0;
      }
     </style>
     <script>
