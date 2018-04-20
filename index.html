@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-
   </head>
   <body>
-    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+
     <div id="root">
-      <img src="img/Logo1.png">
-      <button class="btn-primary" @click="isSeen = !isSeen"><i class="fas icon fa-bars"></i></button>
+      <img v-if="isSeen" v-bind:src="logo">
+      <img v-else v-bind:src="icon">
+      <button class="btn-primary" @click="toggleSidebar"><i class="fas icon fa-bars"></i></button>
       <div class="row p-2">
-        <ul style="height:100%;" class="l-0 p-3 list-unstyled position-fixed bg-primary text-light sidebarmenuicons" v-bind:class="[isSeen ? col-2 : col-1]">
+        <ul style="height:100%;" class="l-0 p-3 list-unstyled position-fixed bg-primary text-light " id="sidebarMenu">
           <li class="h5 text-muted font-weight-light" v-show="isSeen">Organization</li>
           <li><i class="fas icon fa-user "></i> <span v-show="isSeen">Users</span></li>
           <li><i class="fas icon fa-users"></i> <span v-show="isSeen" >Groups</span></li>
@@ -46,14 +46,28 @@
        margin:25px 0;
      }
     </style>
+    <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.js" charset="utf-8"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
     <script>
       new Vue({
         el: '#root',
         data:{
-          isSeen:true
+          isSeen:true,
+          icon:'img/icon.png',
+          logo:'img/Logo1.png'
+        },
+        methods:{
+          toggleSidebar: function(){
+            this.isSeen = !this.isSeen
+            if(this.isSeen === true){
+              $("#sidebarMenu").removeClass('sidebarmenuicons').addClass('sidebarmenu')
+            } else {
+              $("#sidebarMenu").removeClass('sidebarmenu').addClass('sidebarmenuicons')
+            }
+          },
         }
       })
     </script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
   </body>
 </html>
