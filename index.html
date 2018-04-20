@@ -5,9 +5,9 @@
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
-  <body>
+  <body class="bg-dark">
 
-    <div id="root">
+    <div class="bg-light" id="root">
       <img v-if="isSeen" v-bind:src="logo">
       <img v-else v-bind:src="icon">
       <button class="btn-primary" @click="toggleSidebar"><i class="fas icon fa-bars"></i></button>
