@@ -6,13 +6,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
   <body class="bg-dark">
-    <div class="bg-light" id="root">
-      <img v-if="isSeen" v-bind:src="logo">
-      <img v-else v-bind:src="icon">
-      <button class="btn-primary" @click="toggleSidebar"><i class="fas icon fa-bars"></i></button>
+    <div class="bg-light" id="root" v-on:mouseover="sidebarShown" v-on:mouseout="sidebarHidden">
+      <img v-if="isSeen" v-bind:src="logo"><img v-else v-bind:src="icon">
       <div class="row p-2">
-        <ul style="height:100%;" class="l-0 p-3 list-unstyled position-fixed bg-primary text-light " id="sidebarMenu">
-          <li class="h5 text-muted font-weight-light" v-show="isSeen">Organization</li>
+        <ul style="height:100%;" class="l-0 p-4 list-unstyled position-fixed bg-primary text-light " id="sidebarMenu">
+          <a href="#"><li class="h5 text-muted font-weight-light" v-show="isSeen">Organization</li></a>
           <li><i class="fas icon fa-user "></i> <span v-show="isSeen">Users</span></li>
           <li><i class="fas icon fa-users"></i> <span v-show="isSeen" >Groups</span></li>
           <li><i class="fas icon fa-user-plus"></i> <span v-show="isSeen" >Roles</span></li>
@@ -57,14 +55,14 @@
           logo:'img/Logo1.png'
         },
         methods:{
-          toggleSidebar: function(){
-            this.isSeen = !this.isSeen
-            if(this.isSeen === true){
+          sidebarShown: function(){
+            this.isSeen = true
               $("#sidebarMenu").removeClass('sidebarmenuicons').addClass('sidebarmenu')
-            } else {
-              $("#sidebarMenu").removeClass('sidebarmenu').addClass('sidebarmenuicons')
-            }
           },
+          sidebarHidden: function(){
+            this.isSeen = false
+              $("#sidebarMenu").removeClass('sidebarmenu').addClass('sidebarmenuicons')
+          }
         }
       })
     </script>
